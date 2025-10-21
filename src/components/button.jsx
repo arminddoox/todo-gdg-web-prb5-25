@@ -19,7 +19,7 @@
 - type = 'black' -> black background & white text
 */
 
-import styles from './Button.module.css';
+import styles from './button.module.css';
 
 export function Button({ children, onClick, type = 'white', className = '' }) {
   const typeStyles = type === 'black' ? styles.buttonBlack : styles.buttonWhite;
