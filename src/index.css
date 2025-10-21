@@ -41,7 +41,7 @@ Read the css requirements inside `.jsx` files.
 }
 
 html {
-  font-size: 20px;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
