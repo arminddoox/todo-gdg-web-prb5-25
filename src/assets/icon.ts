@@ -1,3 +1,4 @@
-// export svgs from assets
+/// @/assets/icon.ts
 
+// export svgs from assets
 // export svgPaths
