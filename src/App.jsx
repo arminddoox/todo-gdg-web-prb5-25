@@ -1,13 +1,5 @@
 /// ./src/App.jsx
 
-import './App.css'
-
-export default function App() {
-  return (
-    <></>
-  )
-}
-
 /* 
 ### this project has Layered Architecture:
 - Presentation/ components & controller
@@ -39,3 +31,73 @@ interface Task {
 - lucide-react
 - ESLint
 */
+
+import './App.css'
+import { useTodoController } from './todo.controller'
+import TodoList from './components/TodoList'
+import TodoForm from './components/TodoForm'
+
+export default function App() {
+  const {
+    tasks,
+    filter,
+    isFormOpen,
+    editingTask,
+    handleAddTask,
+    handleUpdateTask,
+    handleDeleteTask,
+    handleToggleDone,
+    handleToggleImportant,
+    handleOpenAddForm,
+    handleOpenEditForm,
+    handleCloseForm,
+    handleFilterChange
+  } = useTodoController();
+
+  const handleFormComplete = (taskData) => {
+    if (editingTask) {
+      handleUpdateTask(editingTask.id, taskData);
+    } else {
+      handleAddTask(
+        taskData.taskName,
+        taskData.dueDate,
+        taskData.repeat,
+        taskData.isImportant
+      );
+    }
+  };
+
+  const handleRename = (id, newName) => {
+    handleUpdateTask(id, { taskName: newName });
+  };
+
+  return (
+    <div className="app">
+      <header className="app-header">
+        <h1 className="app-title">Todo App</h1>
+      </header>
+
+      <main className="app-main">
+        <TodoList
+          tasks={tasks}
+          filter={filter}
+          onFilterChange={handleFilterChange}
+          onToggleDone={handleToggleDone}
+          onToggleImportant={handleToggleImportant}
+          onEdit={handleOpenEditForm}
+          onDelete={handleDeleteTask}
+          onRename={handleRename}
+          onAddNew={handleOpenAddForm}
+        />
+      </main>
+
+      {isFormOpen && (
+        <TodoForm
+          task={editingTask}
+          onComplete={handleFormComplete}
+          onCancel={handleCloseForm}
+        />
+      )}
+    </div>
+  )
+}

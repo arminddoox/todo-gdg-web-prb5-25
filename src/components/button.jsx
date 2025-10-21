@@ -1,7 +1,5 @@
 /// ./src/components/button.jsx
 
-// to be duplicated
-
 /*
 === UX/UI description ===
 
@@ -20,3 +18,21 @@
 - type = 'white' -> white background & black text
 - type = 'black' -> black background & white text
 */
+
+export function Button({ children, onClick, type = 'white', className = '' }) {
+  const baseStyles = 'button-base';
+  const typeStyles = type === 'black' ? 'button-black' : 'button-white';
+
+  return (
+    <button
+      className={`${baseStyles} ${typeStyles} ${className}`}
+      onClick={onClick}
+    >
+      <div className="button-content">
+        {children}
+      </div>
+    </button>
+  );
+}
+
+export default Button;
