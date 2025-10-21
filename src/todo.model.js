@@ -1,0 +1,1 @@
+// Based on Layered Architecture, this is Domain/ model
