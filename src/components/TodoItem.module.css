@@ -1,0 +1,84 @@
+/* ./src/TodoItem.module.css */
+
+/* TodoItem Component */
+.todoItem {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.todoItem:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.todoItemOverdue {
+  border-color: var(--danger-color);
+  background-color: var(--danger-bg);
+}
+
+.todoItemDone {
+  opacity: 0.6;
+}
+
+.todoItemDone .taskName {
+  text-decoration: line-through;
+}
+
+.iconButton {
+  padding: 0.5rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  color: var(--text-primary);
+}
+
+.iconButton:hover {
+  background-color: var(--hover-bg);
+}
+
+.taskContent {
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.taskName {
+  word-break: break-word;
+  margin-bottom: 0.25rem;
+}
+
+.taskDetail {
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.taskEditInput {
+  width: 100%;
+  padding: 0.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-primary);
+  font-family: inherit;
+}
+
+.taskActions {
+  display: flex;
+  gap: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.taskActions.visible {
+  opacity: 1;
+}

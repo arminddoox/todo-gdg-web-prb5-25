@@ -19,16 +19,17 @@
 - type = 'black' -> black background & white text
 */
 
+import styles from './Button.module.css';
+
 export function Button({ children, onClick, type = 'white', className = '' }) {
-  const baseStyles = 'button-base';
-  const typeStyles = type === 'black' ? 'button-black' : 'button-white';
+  const typeStyles = type === 'black' ? styles.buttonBlack : styles.buttonWhite;
 
   return (
     <button
-      className={`${baseStyles} ${typeStyles} ${className}`}
+      className={`${styles.buttonBase} ${typeStyles} ${className}`}
       onClick={onClick}
     >
-      <div className="button-content">
+      <div className={styles.buttonContent}>
         {children}
       </div>
     </button>

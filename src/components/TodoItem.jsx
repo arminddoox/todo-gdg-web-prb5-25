@@ -29,6 +29,7 @@
 
 import { useState } from 'react';
 import { Check, Circle, Star, Edit, Trash2 } from '@/assets/icon';
+import styles from './TodoItem.module.css';
 
 export function TodoItem({ task, onToggleDone, onToggleImportant, onEdit, onDelete, onRename }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -80,7 +81,7 @@ export function TodoItem({ task, onToggleDone, onToggleImportant, onEdit, onDele
     setIsEditing(false);
   };
 
-  const itemClassName = `todo-item ${isOverdue ? 'todo-item-overdue' : ''} ${task.isDone ? 'todo-item-done' : ''}`;
+  const itemClassName = `${styles.todoItem} ${isOverdue ? styles.todoItemOverdue : ''} ${task.isDone ? styles.todoItemDone : ''}`;
 
   return (
     <div
@@ -89,7 +90,7 @@ export function TodoItem({ task, onToggleDone, onToggleImportant, onEdit, onDele
       onMouseLeave={() => setIsHovered(false)}
     >
       <button
-        className="icon-button"
+        className={styles.iconButton}
         onClick={() => onToggleDone(task.id)}
         title={task.isDone ? 'Mark as undone' : 'Mark as done'}
       >
@@ -97,7 +98,7 @@ export function TodoItem({ task, onToggleDone, onToggleImportant, onEdit, onDele
       </button>
 
       <button
-        className="icon-button"
+        className={styles.iconButton}
         onClick={() => onToggleImportant(task.id)}
         title={task.isImportant ? 'Remove from important' : 'Mark as important'}
       >
@@ -107,11 +108,11 @@ export function TodoItem({ task, onToggleDone, onToggleImportant, onEdit, onDele
         />
       </button>
 
-      <div className="task-content" onDoubleClick={handleDoubleClick}>
+      <div className={styles.taskContent} onDoubleClick={handleDoubleClick}>
         {isEditing ? (
           <input
             type="text"
-            className="task-edit-input normal-text"
+            className={`${styles.taskEditInput} normal-text`}
             value={editValue}
             onChange={(e) => setEditValue(e.target.value)}
             onBlur={handleSaveRename}
@@ -120,17 +121,17 @@ export function TodoItem({ task, onToggleDone, onToggleImportant, onEdit, onDele
           />
         ) : (
           <>
-            <div className="task-name normal-text">{task.taskName}</div>
+            <div className={`${styles.taskName} normal-text`}>{task.taskName}</div>
             {getDetailText() && (
-              <div className="task-detail tiny-text">{getDetailText()}</div>
+              <div className={`${styles.taskDetail} tiny-text`}>{getDetailText()}</div>
             )}
           </>
         )}
       </div>
 
-      <div className={`task-actions ${isHovered ? 'visible' : ''}`}>
+      <div className={`${styles.taskActions} ${isHovered ? styles.visible : ''}`}>
         <button
-          className="icon-button"
+          className={styles.iconButton}
           onClick={() => onEdit(task)}
           title="Edit task"
         >
@@ -138,7 +139,7 @@ export function TodoItem({ task, onToggleDone, onToggleImportant, onEdit, onDele
         </button>
 
         <button
-          className="icon-button"
+          className={styles.iconButton}
           onClick={() => onDelete(task.id)}
           title="Delete task"
         >

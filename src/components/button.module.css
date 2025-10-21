@@ -1,0 +1,39 @@
+/* ./src/Button.module.css */
+
+/* Button Component */
+.buttonBase {
+  padding: 1rem 2rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.buttonBase:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.buttonBase:active {
+  transform: scale(0.98);
+}
+
+.buttonWhite {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.buttonBlack {
+  background-color: var(--text-primary);
+  color: var(--bg-secondary);
+}
+
+.buttonContent {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

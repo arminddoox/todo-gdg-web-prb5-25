@@ -27,6 +27,7 @@ import { useState } from 'react';
 import { ChevronDown, Plus } from '@/assets/icon';
 import Button from './button';
 import TodoItem from './TodoItem';
+import styles from './TodoList.module.css';
 
 export function TodoList({ 
   tasks, 
@@ -61,26 +62,26 @@ export function TodoList({
   };
 
   return (
-    <div className="todo-list">
-      <div className="list-header">
-        <div className="filter-container">
+    <div className={styles.todoList}>
+      <div className={styles.listHeader}>
+        <div className={styles.filterContainer}>
           <button
-            className="filter-button"
+            className={styles.filterButton}
             onClick={() => setIsFilterOpen(!isFilterOpen)}
           >
             <span className="normal-text">{getCurrentFilterLabel()}</span>
             <ChevronDown 
               size={20} 
-              className={`filter-icon ${isFilterOpen ? 'rotated' : ''}`}
+              className={`${styles.filterIcon} ${isFilterOpen ? styles.rotated : ''}`}
             />
           </button>
 
           {isFilterOpen && (
-            <div className="filter-dropdown">
+            <div className={styles.filterDropdown}>
               {filterOptions.map((option) => (
                 <button
                   key={option.value}
-                  className={`filter-option ${filter === option.value ? 'selected' : ''}`}
+                  className={`${styles.filterOption} ${filter === option.value ? styles.selected : ''}`}
                   onClick={() => handleFilterSelect(option.value)}
                 >
                   {option.label}
@@ -96,9 +97,9 @@ export function TodoList({
         </Button>
       </div>
 
-      <div className="tasks-container">
+      <div className={styles.tasksContainer}>
         {tasks.length === 0 ? (
-          <div className="empty-state">
+          <div className={styles.emptyState}>
             <p className="normal-text">No tasks found</p>
           </div>
         ) : (

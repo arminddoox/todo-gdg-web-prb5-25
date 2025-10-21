@@ -31,6 +31,7 @@
 import { useState, useEffect } from 'react';
 import { Check, Circle, Star } from '@/assets/icon';
 import Button from './button';
+import styles from './TodoForm.module.css';
 
 export function TodoForm({ task, onComplete, onCancel }) {
   const [taskName, setTaskName] = useState('');
@@ -83,13 +84,13 @@ export function TodoForm({ task, onComplete, onCancel }) {
   };
 
   return (
-    <div className="form-overlay" onClick={onCancel}>
-      <div className="form-card" onClick={(e) => e.stopPropagation()}>
+    <div className={styles.formOverlay} onClick={onCancel}>
+      <div className={styles.formCard} onClick={(e) => e.stopPropagation()}>
         <form onSubmit={handleSubmit}>
-          <div className="form-row">
+          <div className={styles.formRow}>
             <button
               type="button"
-              className="icon-button"
+              className={styles.iconButton}
               onClick={() => setIsDone(!isDone)}
               title={isDone ? 'Mark as undone' : 'Mark as done'}
             >
@@ -98,7 +99,7 @@ export function TodoForm({ task, onComplete, onCancel }) {
             
             <input
               type="text"
-              className="task-input normal-text"
+              className={`${styles.taskInput} normal-text`}
               placeholder="Task name"
               value={taskName}
               onChange={(e) => setTaskName(e.target.value)}
@@ -107,7 +108,7 @@ export function TodoForm({ task, onComplete, onCancel }) {
             
             <button
               type="button"
-              className="icon-button"
+              className={styles.iconButton}
               onClick={() => setIsImportant(!isImportant)}
               title={isImportant ? 'Remove from important' : 'Mark as important'}
             >
@@ -118,25 +119,25 @@ export function TodoForm({ task, onComplete, onCancel }) {
             </button>
           </div>
 
-          <div className="form-row">
-            <label className="form-label normal-text">Due date:</label>
+          <div className={styles.formRow}>
+            <label className={`${styles.formLabel} normal-text`}>Due date:</label>
             <input
               type="date"
-              className="date-input normal-text"
+              className={`${styles.dateInput} normal-text`}
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
             />
             {dueDate && (
-              <span className="date-display normal-text">
+              <span className={`${styles.dateDisplay} normal-text`}>
                 {formatDateForDisplay(dueDate)}
               </span>
             )}
           </div>
 
-          <div className="form-row">
-            <label className="form-label normal-text">Repeat:</label>
+          <div className={styles.formRow}>
+            <label className={`${styles.formLabel} normal-text`}>Repeat:</label>
             <select
-              className="repeat-select normal-text"
+              className={`${styles.repeatSelect} normal-text`}
               value={repeat}
               onChange={(e) => setRepeat(e.target.value)}
             >
@@ -147,7 +148,7 @@ export function TodoForm({ task, onComplete, onCancel }) {
             </select>
           </div>
 
-          <div className="form-actions">
+          <div className={styles.formActions}>
             <Button type="white" onClick={onCancel}>
               Cancel
             </Button>
