@@ -36,6 +36,7 @@ import './App.css'
 import { useTodoController } from './todo.controller'
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
+import logotext from './assets/logotext.svg'
 
 export default function App() {
   const {
@@ -75,6 +76,9 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <h1 className="app-title">Todo App</h1>
+        <div className="app-subtitle-container"> 
+          <h4 className="app-subtitle">by<img className="app-logotext" src={logotext} /></h4>
+        </div>
       </header>
 
       <main className="app-main">
