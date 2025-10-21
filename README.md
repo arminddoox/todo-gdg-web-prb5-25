@@ -2,6 +2,8 @@
 
 A modern, feature-rich **todo-app** built with React and Vite, implementing a clean layered architecture pattern.
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel)](https://todoapp-demo.vercel.app)
+
 ## Features
 
 - Create, edit, and delete tasks
@@ -23,7 +25,7 @@ A modern, feature-rich **todo-app** built with React and Vite, implementing a cl
 
 This project follows a **Layered Architecture** pattern:
 
-```
+```js
 ├── Presentation/        # Components & Controllers
 │   ├── components/
 │   └── todo.controller.js
@@ -36,7 +38,7 @@ This project follows a **Layered Architecture** pattern:
 
 ## Data Schema
 
-```typescript
+```js
 type RepeatType = 'none' | 'daily' | 'weekly' | 'monthly'
 
 type TagType = 'none' | 'important' | 'today' | 'this week' | 'overdue' | 'done'
@@ -52,18 +54,22 @@ interface Task {
 
 ## Project Structure
 
-```
+```js
 todo-app/
 ├── public/
 │   └── vite.svg
 ├── src/
 │   ├── assets/
-│   │   └── icon.ts              # SVG exports
+│   │   └── icon.ts              # SVG, icon exports
 │   ├── components/
 │   │   ├── button.jsx           # Reusable button component
+│   │   ├── button.module.css    # Button styles
 │   │   ├── TodoForm.jsx         # Add/Edit task form
+│   │   ├── TodoForm.module.css  # Form styles
 │   │   ├── TodoItem.jsx         # Individual task item
-│   │   └── TodoList.jsx         # Task list with filters
+│   │   ├── TodoItem.module.css  # Item styles
+│   │   ├── TodoList.jsx         # Task list with filters
+│   │   └── TodoList.module.css  # List styles
 │   ├── todo.controller.js       # Presentation layer
 │   ├── todo.service.js          # Business logic & storage
 │   ├── todo.model.js            # Data models
@@ -134,12 +140,14 @@ The project uses `@/` as an alias for `./src/` directory.
 ### CSS Organization
 - `index.css`: CSS variables, fonts (Montserrat), base reset
 - `App.css`: Layout, component-specific classes and responsive base
+- `*.module.css`: Component-scoped styles using CSS Modules
 
 ### Component Guidelines
 - Components use `.normal-text` for standard text
 - Use `.tiny-text` for smaller details
 - Icons from `lucide-react` for consistency
 - Hover effects with transitions for better UX
+- CSS Modules for component-level styling
 
 ## Pipeline
 
