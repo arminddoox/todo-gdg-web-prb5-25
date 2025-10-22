@@ -2,7 +2,9 @@
 
 A modern, feature-rich **todo-app** built with React and Vite, implementing a clean layered architecture pattern.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel)](https://todoapp-demo.vercel.app)
+<br/>[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel)](https://todo-gdg-web-prb5-25.vercel.app/)
+<br/>[![GitHub Repo](https://img.shields.io/badge/GitHub-arminddoox%2Ftodo--gdg--web--prb5--25-blue?logo=github)](https://github.com/arminddoox/todo-gdg-web-prb5-25.git)
+<br/>[![Google Docs](https://img.shields.io/badge/Docs-Google%20Docs-orange?logo=googledocs)](https://docs.google.com/document/d/1zKvyWutj1CU4-TEiij…)
 
 ## Features
 
@@ -25,20 +27,20 @@ A modern, feature-rich **todo-app** built with React and Vite, implementing a cl
 
 This project follows a **Layered Architecture** pattern:
 
-```js
+```ts
 ├── Presentation/        # Components & Controllers
 │   ├── components/
 │   └── todo.controller.js
 ├── Application/         # Services & Infrastructure
 │   └── todo.service.js
-├── Domain/             # Models
+├── Domain/              # Models
 │   └── todo.model.js
-└── Infrastructure/     # localStorage (grouped with Application)
+└── Infrastructure/      # localStorage (grouped with Application)
 ```
 
 ## Data Schema
 
-```js
+```ts
 type RepeatType = 'none' | 'daily' | 'weekly' | 'monthly'
 
 type TagType = 'none' | 'important' | 'today' | 'this week' | 'overdue' | 'done'
@@ -54,7 +56,7 @@ interface Task {
 
 ## Project Structure
 
-```js
+```ts
 todo-app/
 ├── public/
 │   └── vite.svg
@@ -156,3 +158,6 @@ The project uses `@/` as an alias for `./src/` directory.
 3. Commit **new-feature** changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+
+Chuyên ý nguyên sang Doc
